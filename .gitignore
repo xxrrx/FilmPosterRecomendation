@@ -1,0 +1,40 @@
+# ── Large model / data files (regenerate by running notebooks) ──
+models/*.npy
+models/*.pkl
+models/*.png
+data/raw/
+data/processed/
+
+# Keep rules.csv (small, 4KB) — comment out dong nay de commit rules
+# models/rules.csv
+
+# ── SQLite database (generated at runtime) ──
+backend/movies.db
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# ── Jupyter ──
+.ipynb_checkpoints/
+
+# ── Node / Frontend ──
+frontend/node_modules/
+frontend/dist/
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ──
+.vscode/
+.idea/
+*.suo
+*.user
