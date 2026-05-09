@@ -32,82 +32,101 @@ He thong goi y phim da phuong tien ket hop phan tich hinh anh ap phich (poster) 
 
 ## Huong Dan Cai Dat Va Khoi Chay
 
-### Buoc 1: Clone du an
+Có **2 cách** tùy vào bạn là thành viên mới hay muốn tự train lại từ đầu.
+
+---
+
+### Cach A: Nhanh (danh cho teammate — khong can chay notebook)
+
+> Cach nay tai model da train san tu Google Drive, bo qua hoan toan buoc thu thap du lieu va train.
+
+**Buoc 1: Clone va cai thu vien**
 
 ```bash
 git clone <repository-url>
 cd KhaiPha
+pip install -r requirements.txt
+pip install gdown
 ```
 
-### Buoc 2: Cai dat thu vien Python
+**Buoc 2: Tai models tu Google Drive (tu dong)**
 
 ```bash
+python setup_assets.py
+```
+
+Script se tai ~135MB gom: `combined_features.npy`, `cnn_features.npy`, `tfidf_matrix.npy`, cac file `.pkl` va `movies_valid.csv`.
+
+**Buoc 3: Chay Backend**
+
+```bash
+cd backend
+uvicorn app:app --reload --port 8000
+```
+
+**Buoc 4: Chay Frontend**
+
+Mo terminal moi:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Mo trinh duyet: **http://localhost:5173**
+
+---
+
+### Cach B: Tu train lai tu dau (day du)
+
+> Danh cho nguoi muon chay lai toan bo pipeline tu raw data.
+
+**Buoc 1: Clone va cai thu vien**
+
+```bash
+git clone <repository-url>
+cd KhaiPha
 pip install -r requirements.txt
 ```
 
-### Buoc 3: Lay API Keys
+**Buoc 2: Lay API Keys**
 
 **Kaggle API** (de tai dataset):
 1. Vao https://www.kaggle.com → Account → API → Create New Token
-2. Dat file `kaggle.json` vao `C:\Users\<ten>\\.kaggle\kaggle.json`
+2. Dat file `kaggle.json` vao `C:\Users\<ten>\.kaggle\kaggle.json`
 
 **TMDB API** (de fetch poster):
 1. Vao https://www.themoviedb.org → Settings → API → Create
 2. Copy **API Key (v3 auth)**
 
-### Buoc 4: Chay cac Jupyter Notebook theo thu tu
+**Buoc 3: Chay cac Jupyter Notebook theo thu tu**
 
 ```bash
 jupyter notebook
 ```
 
-Chay tung notebook theo thu tu:
+| Notebook | Thoi gian | Output |
+|----------|-----------|--------|
+| `01_data_collection.ipynb` | ~15 phut | `data/processed/movies.csv` |
+| `02_feature_extraction.ipynb` | ~10 phut (GPU) / ~2 gio (CPU) | `models/*.npy`, `models/scalers.pkl` |
+| `03_ml_models.ipynb` | ~5 phut | `models/kmeans.pkl`, `nb_model.pkl`, `rules.csv` |
 
-#### Module 1 — Thu thap du lieu (~15 phut)
-```
-notebooks/01_data_collection.ipynb
-```
-- Tai dataset Kaggle (tmdb_5000_movies + credits)
-- Fetch poster_path tu TMDB API
-- Xuat `data/processed/movies.csv`
-
-> **Dien TMDB API key vao cell 1.4:**
+> **Luu y notebook 01:** Dien TMDB API key vao cell 1.4:
 > ```python
 > TMDB_API_KEY = "your_api_key_here"
 > ```
 
-#### Module 2 — Trich xuat dac trung (~10 phut voi GPU, ~2 gio voi CPU)
-```
-notebooks/02_feature_extraction.ipynb
-```
-- ResNet50 CNN features tu poster URL
-- TF-IDF features tu mo ta phim
-- Xuat `models/combined_features.npy` va cac file `.npy`, `.pkl`
-
-#### Module 3 — Train ML models (~5 phut)
-```
-notebooks/03_ml_models.ipynb
-```
-- K-Means clustering (K=20)
-- Naive Bayes multi-label classification
-- Apriori association rules
-- Xuat `models/kmeans.pkl`, `models/nb_model.pkl`, `models/rules.csv`
-
-### Buoc 5: Chay Backend
+**Buoc 4: Chay Backend**
 
 ```bash
 cd backend
-pip install fastapi uvicorn sqlalchemy
 uvicorn app:app --reload --port 8000
 ```
 
-Kiem tra server:
-- Swagger UI: http://127.0.0.1:8000/docs
-- Test tu dong: `python test_api.py`
+Kiem tra: Swagger UI tai http://127.0.0.1:8000/docs
 
-### Buoc 6: Chay Frontend
-
-Mo terminal moi:
+**Buoc 5: Chay Frontend**
 
 ```bash
 cd frontend
