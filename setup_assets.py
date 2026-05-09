@@ -22,18 +22,18 @@ import sys
 
 FILE_IDS = {
     # models/
-    "models/combined_features.npy":  "PASTE_FILE_ID_HERE",
-    "models/cnn_features.npy":       "PASTE_FILE_ID_HERE",
-    "models/tfidf_matrix.npy":       "PASTE_FILE_ID_HERE",
-    "models/cluster_labels.npy":     "PASTE_FILE_ID_HERE",
-    "models/movie_ids.npy":          "PASTE_FILE_ID_HERE",
-    "models/kmeans.pkl":             "PASTE_FILE_ID_HERE",
-    "models/nb_model.pkl":           "PASTE_FILE_ID_HERE",
-    "models/mlb_encoder.pkl":        "PASTE_FILE_ID_HERE",
-    "models/tfidf_vectorizer.pkl":   "PASTE_FILE_ID_HERE",
-    "models/scalers.pkl":            "PASTE_FILE_ID_HERE",
+    "models/combined_features.npy":  "https://drive.google.com/file/d/19SGlR2p_25I0SuJnRX7tARXsKJ9zf17C/view?usp=sharing",
+    "models/cnn_features.npy":       "https://drive.google.com/file/d/18tTN-7GFHKhyeA4z7-Uf202qtjpvZcg3/view?usp=sharing",
+    "models/tfidf_matrix.npy":       "https://drive.google.com/file/d/1v2oULLZJGT854FMrHx-9atndX9CS6qu7/view?usp=sharing",
+    "models/cluster_labels.npy":     "https://drive.google.com/file/d/1OFGcJTlJmX4WdpwZR7pLKrZCyVcAMNBY/view?usp=sharing",
+    "models/movie_ids.npy":          "https://drive.google.com/file/d/1Ldw5g6QdwwgCJHXqPKo-y5Y8gIxPG8cT/view?usp=sharing",
+    "models/kmeans.pkl":             "https://drive.google.com/file/d/1xK-BDtPcCS1MH9uPKzyOO-e3OILTgDW4/view?usp=sharing",
+    "models/nb_model.pkl":           "https://drive.google.com/file/d/1JUZ7GvMmhd72UCSv05ptQormPucFODqv/view?usp=sharing",
+    "models/mlb_encoder.pkl":        "https://drive.google.com/file/d/1URiWX3qa4SQrjwdP_rqgdsoTYPZVB6jg/view?usp=sharing",
+    "models/tfidf_vectorizer.pkl":   "https://drive.google.com/file/d/1KJVuTGGpSkTMaFaP-aEVt3_40AKNPqrx/view?usp=sharing",
+    "models/scalers.pkl":            "https://drive.google.com/file/d/1Sn9VIizQTXSWuf043LgvNBPtO3A1J3Uf/view?usp=sharing",
     # data/
-    "data/processed/movies_valid.csv": "PASTE_FILE_ID_HERE",
+    "data/processed/movies_valid.csv": "https://drive.google.com/file/d/12DyqSiqYwtUWadlBSgiASt49hyY-Ibv_/view?usp=sharing",
 }
 
 
