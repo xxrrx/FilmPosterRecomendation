@@ -1,5 +1,5 @@
 # ── SQLite database (generated at runtime) ──
-backend/movies.db
+# backend/movies.db
 
 # ── Python ──
 __pycache__/
