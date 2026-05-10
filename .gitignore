@@ -1,13 +1,3 @@
-# ── Large model / data files (regenerate by running notebooks) ──
-models/*.npy
-models/*.pkl
-models/*.png
-data/raw/
-data/processed/
-
-# Keep rules.csv (small, 4KB) — comment out dong nay de commit rules
-# models/rules.csv
-
 # ── SQLite database (generated at runtime) ──
 backend/movies.db
 
